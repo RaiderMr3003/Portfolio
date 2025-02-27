@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+import raider_photo from '../assets/raidermr_photo.jpeg';
+//las imagenes se agregan en el formato src={background.src}, donde background es el nombre de la imagen 
+// y src es el nombre del archivo de la imagen
+---
+
+<header class="flex justify-between items-center py-3 w-[1120px] mx-auto">
+	<Image 
+		class="rounded-full w-10 h-10"
+		src={raider_photo}
+		alt="raidermr"
+		loading="eager"
+	/>
+
+	<nav class="flex flex-row gap-x-10 opacity-80">
+		<a href="#Home">Home</a>
+		<a href="#About">About</a>
+		<a href="#Projects">Projects</a>
+		<a href="#Contact">Contact</a>
+	</nav>
+</header>
