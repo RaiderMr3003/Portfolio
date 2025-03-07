@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+import raider_photo from '../assets/raidermr_photo.jpeg';
+import { Github, Linkedin } from 'lucide-astro';
+//las imagenes se agregan en el formato src={background.src}, donde background es el nombre de la imagen 
+// y src es el nombre del archivo de la imagen
+---
+
+<header class="fixed top-0 left-0 w-full backdrop-blur-md bg-black/50 shadow-md z-50 transition-all duration-300">
+	<div class="flex justify-between items-center py-4 px-8 max-w-[1120px] mx-auto">
+		<Image 
+			class="rounded-full w-10 h-10"
+			src={raider_photo}
+			alt="raidermr"
+			loading="eager"
+		/>
+
+		<nav class="flex flex-row gap-x-15 opacity-80">
+			<a href="#Home" class="text-white hover:text-[#EDBB00] transition-colors">Home</a>
+			<a href="#About" class="text-white hover:text-[#EDBB00] transition-colors">About</a>
+			<a href="#Projects" class="text-white hover:text-[#EDBB00] transition-colors">Projects</a>
+			<a href="#Skills" class="text-white hover:text-[#EDBB00] transition-colors">Skills</a>
+			<a href="#Contact" class="text-white hover:text-[#EDBB00] transition-colors">Contact</a>
+		</nav>
+
+		<div class="flex gap-4">
+			<a 
+				href="https://github.com/RaiderMr3003" 
+				target="_blank" 
+				rel="noopener noreferrer" 
+				class="text-white hover:text-[#EDBB00] transition-colors"
+				aria-label="GitHub"
+			>
+				<Github size={20} />
+			</a>
+		
+			<a 
+				href="https://linkedin.com/in/mrgean3003/" 
+				target="_blank" 
+				rel="noopener noreferrer" 
+				class="text-white hover:text-[#EDBB00] transition-colors"
+				aria-label="LinkedIn"
+			>
+				<Linkedin size={20} />
+			</a>
+		</div>
+	</div>
+
+	<div class="absolute bottom-0 left-0 w-full h-[4px] bg-gradient-to-r from-[#A50044] to-[#004D98] drop-shadow-lg"></div>
+	<div class="absolute bottom-0 left-0 w-full h-[4px] bg-gradient-to-r from-[#A50044] to-[#004D98] blur-md opacity-90"></div>
+	<div class="absolute bottom-0 left-0 w-full h-[6px] bg-gradient-to-r from-[#A50044] via-white to-[#004D98] blur-lg opacity-70"></div>
+</header>
+

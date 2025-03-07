@@ -1,0 +1,69 @@
+---
+import { Github, Globe } from 'lucide-astro';
+
+const projects = [
+  {
+    title: "Project 1",
+    description: "Description of the project.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    tags: ["React", "React", "React"],
+    link: "#",
+    code: "#"
+  },
+  {
+    title: "Project 2",
+    description: "Description of the project.",
+    image: "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    tags: ["React", "React", "React"],
+    link: "#",
+    code: "#"
+  },
+  {
+    title: "Project 3",
+    description: "Description of the project.",
+    image: "https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    tags: ["React", "React", "React"],
+    link: "#",
+    code: "#"
+  }
+];
+---
+
+<section id="Projects" class="py-20 text-white min-h-screen">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-20 text-center">
+      <span class="text-[#EDBB00]">My Projects</span>
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map(({ title, description, image, tags, link, code }) => (
+        <div class="bg-[#00205B]/50 rounded-lg overflow-hidden border border-[#EDBB00]/20 hover:border-[#EDBB00] transition-colors group">
+          <div class="relative h-48 overflow-hidden">
+            <img 
+              src={image} 
+              alt={title} 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#00205B] to-transparent opacity-70"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-[#EDBB00]">{title}</h3>
+            <p class="text-gray-300 mb-4">{description}</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              {tags.map(tag => (
+                <span class="bg-[#A50044]/30 px-2 py-1 rounded text-xs">{tag}</span>
+              ))}
+            </div>
+            <div class="flex gap-3">
+              <a href={link} class="text-[#EDBB00] hover:underline flex items-center gap-1">
+                <Globe size={16} /> Link
+              </a>
+              <a href={code} class="text-[#EDBB00] hover:underline flex items-center gap-1">
+                <Github size={16} /> Code
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
