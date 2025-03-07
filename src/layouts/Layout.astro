@@ -14,6 +14,10 @@ import Footer from "../components/Footer.astro";
 		<title>Portfolio de RaiderMr</title>
 	</head>
 	<body>
+		<div class="fixed inset-0 -z-10 h-screen w-screen bg-slate-950">
+			<div class="absolute -top-20 -left-80 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
+			<div class="absolute -top-20 -right-80 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
+		</div>		
 		<Header />
 		<slot />
 		<Footer />
