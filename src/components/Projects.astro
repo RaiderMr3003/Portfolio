@@ -29,10 +29,10 @@ const projects = [
 ];
 ---
 
-<section id="Projects" class="py-20 text-white min-h-screen">
+<section id="Projects" class="py-4 text-white min-h-[740px]">
   <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold mb-20 text-center">
-      <span class="text-[#EDBB00]">My Projects</span>
+    <h2 class="text-3xl font-bold mb-14 text-center">
+      <span class="font-fcb text-[#EDBB00]">My Projects</span>
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {projects.map(({ title, description, image, tags, link, code }) => (
@@ -46,14 +46,14 @@ const projects = [
             <div class="absolute inset-0 bg-gradient-to-t from-[#00205B] to-transparent opacity-70"></div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold mb-2 text-[#EDBB00]">{title}</h3>
+            <h3 class="font-fcb text-xl font-bold mb-2 text-[#EDBB00]">{title}</h3>
             <p class="text-gray-300 mb-4">{description}</p>
             <div class="flex flex-wrap gap-2 mb-4">
               {tags.map(tag => (
-                <span class="bg-[#A50044]/30 px-2 py-1 rounded text-xs">{tag}</span>
+                <span class="font-fcb bg-[#A50044]/30 px-2 py-1 rounded text-xs">{tag}</span>
               ))}
             </div>
-            <div class="flex gap-3">
+            <div class="font-fcb flex gap-3">
               <a href={link} class="text-[#EDBB00] hover:underline flex items-center gap-1">
                 <Globe size={16} /> Link
               </a>

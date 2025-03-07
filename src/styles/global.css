@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+@theme {
+    --font-fcb: "FCB", sans-serif;
+}
+
+
+@font-face {
+    font-family: "FCB";
+    src: url('/fonts/FCB.woff2') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
