@@ -1,5 +1,5 @@
 ---
-import { Github, Globe } from 'lucide-astro';
+import { Github, Globe, PackageSearch } from 'lucide-astro';
 
 const projects = [
   {
@@ -29,10 +29,22 @@ const projects = [
 ];
 ---
 
-<section id="Projects" class="py-10 text-white min-h-[740px]">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold mb-14 text-center">
-      <span class="font-fcb text-[#EDBB00]">My Projects</span>
+<section id="Projects" class="section undefined scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl">
+  <div class="container mx-auto px-auto">
+    <h2 class="dark:text-yellow-400 flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white undefined">
+      <svg
+      class="size-8"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      stroke-width="2"
+      stroke="currentColor"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      >
+      <PackageSearch size={25} />
+      </svg><span class="font-fcb">Projects</span>
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {projects.map(({ title, description, image, tags, link, code }) => (
