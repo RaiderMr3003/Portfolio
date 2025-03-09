@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+import { UserPen } from 'lucide-astro';
+import raider_photo from '../assets/raidermr_photo.webp';
+---
+<section
+  id="About"
+  class="section undefined scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl"
+>
+  <h2
+    class="flex items-center mb-6 text-3xl font-fcb gap-x-3 text-black/80 dark:text-yellow-400 undefined"
+  >
+    <svg
+      class="size-8"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      stroke-width="2"
+      stroke="currentColor"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      >
+      <UserPen size={25} />
+      </svg>
+    About me
+  </h2>
+  <article
+    class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row"
+  >
+    <div
+      class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-300 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
+    >
+      <p>
+        My name is Máximo Mercado Racchumí, but my username is RaiderMr. I am a <strong>Software Engineer</strong>, and I really enjoy web development. I am currently a <strong>Freelancer</strong>.
+      </p>
+      <p>
+        Some of my projects include a <strong>registration system that also generates Word documents for Notaria Delgado in Peru</strong>. However, I am now also working as an IT assistant for the same company.
+      </p>
+      <p>
+        As a Freelancer, I have worked with <strong>PHP, Laravel, JavaScript, Astro, React, Tailwind, and Bootstrap</strong>. My goal is to provide users with a fast, simple, and efficient solution.
+      </p>
+    </div>
+    <Image
+      width="300"
+      height="300"
+      src={raider_photo}
+      alt="Máximo Mercado Rachumí"
+      class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-4 lg:p-2 lg:w-64 aspect-square rounded-4xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
+      style="object-position: 50% 50%"
+    />
+  </article>
+  <br><br><br>
+</section>
