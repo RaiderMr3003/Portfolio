@@ -1,0 +1,117 @@
+---
+import { Layers } from 'lucide-astro';
+import { siJavascript, siReact, siNodedotjs, siHtml5, siCss3, siTailwindcss, siGit, siPython, siPhp, siAstro, siLaravel, siLaragon} from 'simple-icons';
+
+const skills = [
+    { icon: siHtml5, name: 'HTML5', color: '#E34F26' },
+    { icon: siCss3, name: 'CSS3', color: '#1572B6' },
+    { icon: siJavascript, name: 'JavaScript', color: '#F7DF1E' },
+    { icon: siTailwindcss, name: 'Tailwind CSS', color: '#06B6D4' },
+    { icon: siAstro, name: 'Astro', color: '#BC52EE' },
+    { icon: siReact, name: 'React', color: '#61DAFB' },
+    { icon: siPhp, name: 'PHP', color: '#777BB4' },
+    { icon: siLaravel, name: 'Laravel', color: '#FF2D20' },
+    { icon: siNodedotjs, name: 'Node.js', color: '#339933' },
+    { icon: siGit, name: 'Git', color: '#F05032' },
+    { icon: siPython, name: 'Python', color: '#3776AB' },
+    { icon: siLaragon, name: 'Laragon', color: '#0E83CD' }
+    ];
+---
+<section
+  id="Skills"
+  class="section undefined scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl"
+>
+  <h2
+    class="flex items-center mb-6 text-3xl font-fcb gap-x-3 text-black/80 dark:text-yellow-400 undefined"
+  >
+    <svg
+      class="size-8"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      stroke-width="2"
+      stroke="currentColor"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      >
+      <Layers size={25} />
+      </svg>
+    Skills
+  </h2>
+  <div class="skills-grid">
+    {
+      skills.map(({ icon, name, color }) => (
+        <div class="skill-card">
+          <div class="icon-wrapper" style={`--icon-color: ${color}`}>
+            <svg
+              role="img"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d={icon.path} />
+            </svg>
+          </div>
+          <span>{name}</span>
+        </div>
+      ))
+    }
+  </div>
+</section>  
+
+<style>
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 2rem;
+      justify-items: center;
+    }
+  
+    .skill-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.2s ease;
+    }
+  
+    .skill-card:hover {
+      transform: translateY(-5px);
+    }
+  
+    .icon-wrapper {
+      width: 64px;
+      height: 64px;
+      padding: 1rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--icon-color);
+      transition: all 0.2s ease;
+    }
+  
+    .skill-card:hover .icon-wrapper {
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+  
+    span {
+      font-size: 0.9rem;
+      color: #b3bed3;
+      font-weight: 500;
+    }
+  
+    @media (max-width: 768px) {
+      .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1.5rem;
+      }
+  
+      .icon-wrapper {
+        width: 48px;
+        height: 48px;
+      }
+    }
+  </style>
