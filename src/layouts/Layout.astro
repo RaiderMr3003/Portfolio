@@ -17,6 +17,7 @@ import Footer from "../components/Footer.astro";
 		<div class="fixed inset-0 -z-10 h-screen w-screen bg-slate-950">
 			<div class="absolute -top-20 -left-80 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
 			<div class="absolute -top-20 -right-80 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
+			<canvas id="rainCanvas" class="absolute inset-0 w-full h-full"></canvas>
 		</div>		
 		<Header />
 		<div class="space-y-24">
@@ -42,3 +43,49 @@ import Footer from "../components/Footer.astro";
 		height: 100vh;
 	}
 </style>
+
+<script>
+	const canvas = document.getElementById("rainCanvas");
+	const ctx = canvas.getContext("2d");
+
+	function resizeCanvas() {
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+	}
+
+	window.addEventListener("resize", resizeCanvas);
+	resizeCanvas();
+
+	const drops = [];
+	for (let i = 0; i < 100; i++) {
+		drops.push({
+			x: Math.random() * canvas.width,
+			y: Math.random() * canvas.height,
+			length: Math.random() * 20 + 10,
+			speed: Math.random() * 2 + 2,
+		});
+	}
+
+	function drawRain() {
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		ctx.strokeStyle = "rgba(173, 216, 230, 0.6)";
+		ctx.lineWidth = 2;
+
+		drops.forEach((drop) => {
+			ctx.beginPath();
+			ctx.moveTo(drop.x, drop.y);
+			ctx.lineTo(drop.x, drop.y + drop.length);
+			ctx.stroke();
+			
+			drop.y += drop.speed;
+			if (drop.y > canvas.height) {
+				drop.y = -drop.length;
+				drop.x = Math.random() * canvas.width;
+			}
+		});
+
+		requestAnimationFrame(drawRain);
+	}
+
+	drawRain();
+</script>
