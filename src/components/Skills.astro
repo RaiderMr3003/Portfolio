@@ -1,20 +1,23 @@
 ---
 import { Layers } from 'lucide-astro';
-import { siJavascript, siReact, siNodedotjs, siHtml5, siCss3, siTailwindcss, siGit, siPython, siPhp, siAstro, siLaravel, siLaragon} from 'simple-icons';
+import { siBootstrap, siJavascript, siMysql, siReact, siDotnet, siNodedotjs, siHtml5, siCss, siTailwindcss, siGit, siPython, siPhp, siAstro, siLaravel, siLaragon} from 'simple-icons';
 
 const skills = [
     { icon: siHtml5, name: 'HTML5', color: '#E34F26' },
-    { icon: siCss3, name: 'CSS3', color: '#1572B6' },
+    { icon: siCss, name: 'CSS', color: '#663399' },
     { icon: siJavascript, name: 'JavaScript', color: '#F7DF1E' },
+    { icon: siPython, name: 'Python', color: '#3776AB' },
     { icon: siTailwindcss, name: 'Tailwind CSS', color: '#06B6D4' },
     { icon: siAstro, name: 'Astro', color: '#BC52EE' },
     { icon: siReact, name: 'React', color: '#61DAFB' },
-    { icon: siPhp, name: 'PHP', color: '#777BB4' },
+    { icon: siBootstrap, name: 'Bootstrap', color: '#7952B3' },
     { icon: siLaravel, name: 'Laravel', color: '#FF2D20' },
+    { icon: siPhp, name: 'PHP', color: '#777BB4' },
+    { icon: siMysql, name: 'MySQL', color: '#4479A1' },
+    { icon: siLaragon, name: 'Laragon', color: '#0E83CD' },
     { icon: siNodedotjs, name: 'Node.js', color: '#339933' },
-    { icon: siGit, name: 'Git', color: '#F05032' },
-    { icon: siPython, name: 'Python', color: '#3776AB' },
-    { icon: siLaragon, name: 'Laragon', color: '#0E83CD' }
+    { icon: siDotnet, name: '.NET', color: '#512BD4' },
+    { icon: siGit, name: 'Git', color: '#F05032' }
     ];
 ---
 <section
@@ -63,7 +66,7 @@ const skills = [
 <style>
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
       gap: 2rem;
       justify-items: center;
     }
