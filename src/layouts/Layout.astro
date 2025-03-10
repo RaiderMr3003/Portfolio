@@ -1,7 +1,5 @@
 ---
 import "../styles/global.css";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
@@ -19,11 +17,9 @@ import Footer from "../components/Footer.astro";
 			<div class="absolute -top-20 -right-80 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
 			<canvas id="rainCanvas" class="absolute inset-0 w-full h-full"></canvas>
 		</div>		
-		<Header />
 		<div class="space-y-24">
 		<slot />
 		</div>
-		<Footer />
 	</body>
 </html>
 

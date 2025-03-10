@@ -1,0 +1,81 @@
+---
+import { Github, Globe, PackageSearch } from 'lucide-astro';
+
+const projects = [
+  {
+    title: "Autoviaje",
+    description: "Sistema de generación de Autorizaciones de Viaje - Creado para la Notaría Delgado, Perú.",
+    image: "/public/projects/autoviaje.webp",
+    tags: ["PHP", "JavaScript", "Bootstrap", "HTML", "CSS"],
+    link: "https://github.com/RaiderMr3003/AutoViaje",
+    code: "https://github.com/RaiderMr3003/AutoViaje"
+  },
+  {
+    title: "RaidersitoV1.0",
+    description: "Raidersito es un Bot de Discord multi-funcional, creado por mi, para practicar mis habilidades con Python.",
+    image: "/public/projects/raidersito.webp",
+    tags: ["Python"],
+    link: "https://github.com/RaiderMr3003/RaidersitoV1.0",
+    code: "https://github.com/RaiderMr3003/RaidersitoV1.0"
+  },
+  {
+    title: "Porfolio",
+    description: "Porfolio creado con Astro para mostrar mis habilidades y experiencia.",
+    image: "/public/projects/portfolio.webp",
+    tags: ["Astro", "TailwindCSS", "JavaScript", "HTML", "CSS"],
+    link: "https://github.com/RaiderMr3003/Portfolio",
+    code: "https://github.com/RaiderMr3003/Portfolio"
+  }
+];
+---
+
+<section id="Projects" class="section undefined scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl">
+  <div class="container mx-auto px-auto">
+    <h2 class="dark:text-yellow-400 flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white undefined">
+      <svg
+      class="size-8"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      stroke-width="2"
+      stroke="currentColor"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      >
+      <PackageSearch size={25} />
+      </svg><span class="font-fcb">Proyectos</span>
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map(({ title, description, image, tags, link, code }) => (
+        <div class="bg-[#00205B]/50 rounded-lg overflow-hidden border border-[#EDBB00]/20 hover:border-[#EDBB00] transition-colors group">
+          <div class="relative h-48 overflow-hidden">
+            <img 
+              src={image} 
+              alt={title} 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#00205B] to-transparent opacity-70"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-fcb text-xl font-bold mb-2 text-[#EDBB00]">{title}</h3>
+            <p class="text-gray-300 mb-4">{description}</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              {tags.map(tag => (
+                <span class="font-fcb bg-[#A50044]/30 px-2 py-1 rounded text-xs">{tag}</span>
+              ))}
+            </div>
+            <div class="font-fcb flex gap-3">
+              <a href={link} class="text-[#EDBB00] hover:underline flex items-center gap-1">
+                <Globe size={16} /> Link
+              </a>
+              <a href={code} class="text-[#EDBB00] hover:underline flex items-center gap-1">
+                <Github size={16} /> Código
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
