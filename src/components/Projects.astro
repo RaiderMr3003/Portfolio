@@ -1,11 +1,15 @@
 ---
 import { Github, Globe, PackageSearch } from 'lucide-astro';
+import { Image } from "astro:assets";
+import autoviajeImg from '/public/projects/autoviaje.webp';
+import raidersitoImg from '/public/projects/raidersito.webp';
+import portfolioImg from '/public/projects/portfolio.webp';
 
 const projects = [
   {
     title: "Autoviaje",
     description: "Travel Autorization Generation System - System created for Notaría Delgado, Peru.",
-    image: "/public/projects/autoviaje.webp",
+    image: autoviajeImg,
     tags: ["PHP", "JavaScript", "Bootstrap", "HTML", "CSS"],
     link: "https://github.com/RaiderMr3003/AutoViaje",
     code: "https://github.com/RaiderMr3003/AutoViaje"
@@ -13,7 +17,7 @@ const projects = [
   {
     title: "RaidersitoV1.0",
     description: "Multi-functional Discord bot, created by me, to practice my Python skills.",
-    image: "/public/projects/raidersito.webp",
+    image: raidersitoImg,
     tags: ["Python"],
     link: "https://github.com/RaiderMr3003/RaidersitoV1.0",
     code: "https://github.com/RaiderMr3003/RaidersitoV1.0"
@@ -21,7 +25,7 @@ const projects = [
   {
     title: "Portfolio",
     description: "Portfolio created with Astro to showcase my skills and experience.",
-    image: "/public/projects/portfolio.webp",
+    image: portfolioImg,
     tags: ["Astro", "TailwindCSS", "JavaScript", "HTML", "CSS"],
     link: "https://github.com/RaiderMr3003/Portfolio",
     code: "https://github.com/RaiderMr3003/Portfolio"
@@ -50,7 +54,7 @@ const projects = [
       {projects.map(({ title, description, image, tags, link, code }) => (
         <div class="bg-[#00205B]/50 rounded-lg overflow-hidden border border-[#EDBB00]/20 hover:border-[#EDBB00] transition-colors group">
           <div class="relative h-48 overflow-hidden">
-            <img 
+            <Image 
               src={image} 
               alt={title} 
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"

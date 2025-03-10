@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import raider_photo from '../../assets/raidermr_photo.webp';
-import { Github, Linkedin, Languages } from 'lucide-astro';
+import { Github, Linkedin, Languages, Menu, X } from 'lucide-astro';
 
 const currentPath = Astro.url.pathname;
 const isSpanish = currentPath.startsWith("../");
@@ -20,19 +20,27 @@ const toggleLanguage = isSpanish ? currentPath.replace("../", "") : `/`;
 			loading="eager"
 		/>
 
-		<nav class="font-fcb flex flex-row gap-x-15 opacity-80">
+		<h2 class="font-fcb md:hidden text-white">
+			RaiderMr | Portfolio
+		</h2>
+		
+		<button id="menu-btn" class="lg:hidden text-white hover:text-[#EDBB00] transition-colors">
+			<Menu size={30} />
+		</button>
+
+		<nav class="font-fcb flex flex-row gap-x-15 opacity-80 hidden lg:flex">
 			<a href="#Experience" class="text-white hover:text-[#EDBB00] transition-colors">Experiencia</a>
 			<a href="#Projects" class="text-white hover:text-[#EDBB00] transition-colors">Proyectos</a>
 			<a href="#Skills" class="text-white hover:text-[#EDBB00] transition-colors">Habilidades</a>			
 			<a href="#About" class="text-white hover:text-[#EDBB00] transition-colors">Sobre Mi</a>
-			<a href="mailto:raidermr3003gean@gmail.com" target="_blank" rel="noopener noreferrer" role="link" class="text-white hover:text-[#EDBB00] transition-colors">Contacto</a>
+			<a href="mailto:raidermr3003gean@gmail.com" target="_blank" rel="icono de lenguages" role="link" class="text-white hover:text-[#EDBB00] transition-colors">Contacto</a>
 		</nav>
 
-		<div class="flex gap-4">
+		<div class="flex gap-4 hidden lg:flex">
 			<a 
 				href="https://github.com/RaiderMr3003" 
 				target="_blank" 
-				rel="noopener noreferrer" 
+				rel="icono-github"
 				class="text-white hover:text-[#EDBB00] transition-colors"
 				aria-label="GitHub"
 			>
@@ -42,20 +50,71 @@ const toggleLanguage = isSpanish ? currentPath.replace("../", "") : `/`;
 			<a 
 				href="https://linkedin.com/in/mrgean3003/" 
 				target="_blank" 
-				rel="noopener noreferrer" 
+				rel="icono-linkedin"
 				class="text-white hover:text-[#EDBB00] transition-colors"
 				aria-label="LinkedIn"
 			>
 				<Linkedin size={20} />
 			</a>
-			<a href={toggleLanguage} class="text-white hover:text-[#EDBB00] transition-colors">
-				<Languages size={20} /> {isSpanish ? "Español" : "English"}
-			  </a>
+
+			<div class="relative group">
+				<button class="text-white hover:text-[#EDBB00] transition-colors flex items-center">
+				  <Languages size={20} />
+				  <span class="ml-2">{isSpanish ? "English" : "Español"}</span>
+				</button>
+			  
+				<ul class="absolute left-0 mt-2 w-32 bg-black text-white border border-[#EDBB00] rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+					<li>
+						<a href="/" class="block px-4 py-2 hover:bg-[#EDBB00] hover:text-black" aria-label="Switch to English version">English</a>
+					</li>
+					<li>
+						<a href="/es" class="block px-4 py-2 hover:bg-[#EDBB00] hover:text-black" aria-label="Cambiar a la versión en español">Español</a>
+					</li>
+				</ul>
+
+			</div>			  
 		</div>
 	</div>
 
+	<div id="mobile-menu" class="fixed top-0 left-0 w-full h-screen bg-black/90 flex flex-col items-center justify-center gap-6 text-white transition-transform duration-300 -translate-x-full">
+		<button id="close-btn" class="absolute top-6 right-8 text-white hover:text-[#EDBB00]">
+			<X size={30} />
+		</button>
+		<a href="#Experience" class="hover:text-[#EDBB00] transition-colors text-lg">Experience</a>
+		<a href="#Projects" class="hover:text-[#EDBB00] transition-colors text-lg">Projects</a>
+		<a href="#Skills" class="hover:text-[#EDBB00] transition-colors text-lg">Skills</a>
+		<a href="#About" class="hover:text-[#EDBB00] transition-colors text-lg">About</a>
+		<a href="mailto:raidermr3003gean@gmail.com" class="hover:text-[#EDBB00] transition-colors text-lg">Contact</a>
+
+		{/* Iconos en móviles */}
+		<div class="flex gap-6">
+			<a href="https://github.com/RaiderMr3003" target="_blank" rel="icono-github" class="hover:text-[#EDBB00] transition-colors">
+				<Github size={30} />
+			</a>
+			<a href="https://linkedin.com/in/mrgean3003/" target="_blank" rel="icono-linkedin" class="hover:text-[#EDBB00] transition-colors">
+				<Linkedin size={30} />
+			</a>
+		</div>
+	</div>
 	<div class="absolute bottom-0 left-0 w-full h-[4px] bg-gradient-to-r from-[#A50044] to-[#004D98] drop-shadow-lg"></div>
 	<div class="absolute bottom-0 left-0 w-full h-[4px] bg-gradient-to-r from-[#A50044] to-[#004D98] blur-md opacity-90"></div>
 	<div class="absolute bottom-0 left-0 w-full h-[6px] bg-gradient-to-r from-[#A50044] via-white to-[#004D98] blur-lg opacity-70"></div>
 </header>
-
+<script defer>
+	window.onload = () => {
+	  const menuBtn = document.getElementById('menu-btn');
+	  const closeBtn = document.getElementById('close-btn');
+	  const mobileMenu = document.getElementById('mobile-menu');
+  
+	  if (menuBtn && closeBtn && mobileMenu) {
+		menuBtn.addEventListener('click', () => {
+		  mobileMenu.classList.remove('-translate-x-full');
+		});
+  
+		closeBtn.addEventListener('click', () => {
+		  mobileMenu.classList.add('-translate-x-full');
+		});
+	  }
+	};
+  </script>
+  
