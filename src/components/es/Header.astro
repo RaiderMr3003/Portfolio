@@ -94,6 +94,21 @@ const toggleLanguage = isSpanish ? currentPath.replace("../", "") : `/`;
 			<a href="https://linkedin.com/in/mrgean3003/" target="_blank" rel="icono-linkedin" class="hover:text-[#EDBB00] transition-colors">
 				<Linkedin size={30} />
 			</a>
+			<div class="relative group">
+				<button class="text-white hover:text-[#EDBB00] transition-colors flex items-center">
+				  <Languages size={20} />
+				  <span class="ml-2">{isSpanish ? "English" : "Español"}</span>
+				</button>
+			  
+				<ul class="absolute left-0 mt-2 w-32 bg-black text-white border border-[#EDBB00] rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+					<li>
+						<a href="/" class="block px-4 py-2 hover:bg-[#EDBB00] hover:text-black" aria-label="Switch to English version">English</a>
+					</li>
+					<li>
+						<a href="/es" class="block px-4 py-2 hover:bg-[#EDBB00] hover:text-black" aria-label="Cambiar a la versión en español">Español</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 	<div class="absolute bottom-0 left-0 w-full h-[4px] bg-gradient-to-r from-[#A50044] to-[#004D98] drop-shadow-lg"></div>
