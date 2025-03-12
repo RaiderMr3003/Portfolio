@@ -24,7 +24,7 @@ const toggleLanguage = isSpanish ? currentPath.replace("/es", "") : `/es${curren
 			RaiderMr | Portfolio
 		</h2>
 
-		<button id="menu-btn" class="md:hidden text-white hover:text-[#EDBB00] transition-colors">
+		<button id="menu-btn" class="md:hidden text-white hover:text-[#EDBB00] transition-colors cursor-pointer">
 			<Menu size={30} />
 		</button>
 
@@ -57,13 +57,13 @@ const toggleLanguage = isSpanish ? currentPath.replace("/es", "") : `/es${curren
 				<Linkedin size={20} />
 			</a>
 
-			<div class="relative group">
-				<button class="text-white hover:text-[#EDBB00] transition-colors flex items-center">
-				  <Languages size={20} />
-				  <span class="ml-2">{isSpanish ? "Español" : "English"}</span>
+			<div class="relative">
+				<button id="language-btn" class="text-white hover:text-[#EDBB00] transition-colors flex items-center cursor-pointer">
+					<Languages size={20} />
+					<span class="ml-2">{isSpanish ? "Español" : "English"}</span>
 				</button>
-			  
-				<ul class="absolute left-0 mt-2 w-32 bg-black text-white border border-[#EDBB00] rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+			
+				<ul id="language-menu" class="absolute left-0 mt-2 w-32 bg-black text-white border border-[#EDBB00] rounded-md opacity-0 invisible transition-all z-50">
 					<li>
 						<a href="/" class="block px-4 py-2 hover:bg-[#EDBB00] hover:text-black" aria-label="Switch to English version">English</a>
 					</li>
@@ -71,12 +71,12 @@ const toggleLanguage = isSpanish ? currentPath.replace("/es", "") : `/es${curren
 						<a href="/es" class="block px-4 py-2 hover:bg-[#EDBB00] hover:text-black" aria-label="Cambiar a la versión en español">Español</a>
 					</li>
 				</ul>
-			</div>			  
+			</div>
 		</div>
 	</div>
 
 	<div id="mobile-menu" class="fixed top-0 left-0 w-full h-screen bg-black/90 flex flex-col items-center justify-center gap-6 text-white transition-transform duration-300 -translate-x-full">
-		<button id="close-btn" class="absolute top-6 right-8 text-white hover:text-[#EDBB00]">
+		<button id="close-btn" class="absolute top-6 right-8 text-white hover:text-[#EDBB00] cursor-pointer">
 			<X size={30} />
 		</button>
 		<a href="#Experience" class="hover:text-[#EDBB00] transition-colors text-lg">Experience</a>
@@ -93,13 +93,13 @@ const toggleLanguage = isSpanish ? currentPath.replace("/es", "") : `/es${curren
 			<a href="https://linkedin.com/in/mrgean3003/" target="_blank" rel="icon-linkedin" class="hover:text-[#EDBB00] transition-colors">
 				<Linkedin size={30} />
 			</a>
-			<div class="relative group">
-				<button class="text-white hover:text-[#EDBB00] transition-colors flex items-center">
-				  <Languages size={20} />
-				  <span class="ml-2">{isSpanish ? "Español" : "English"}</span>
+			<div class="relative">
+				<button id="mobile-language-btn" class="text-white hover:text-[#EDBB00] transition-colors flex items-center border border-[#EDBB00] px-3 py-1 rounded-md cursor-pointer">
+					<Languages size={20} />
+					<span class="ml-2">{isSpanish ? "Español" : "English"}</span>
 				</button>
-			  
-				<ul class="absolute left-0 mt-2 w-32 bg-black text-white border border-[#EDBB00] rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+		
+				<ul id="mobile-language-menu" class="absolute left-0 mt-2 w-32 bg-black text-white border border-[#EDBB00] rounded-md opacity-0 invisible transition-all z-50">
 					<li>
 						<a href="/" class="block px-4 py-2 hover:bg-[#EDBB00] hover:text-black" aria-label="Switch to English version">English</a>
 					</li>
@@ -116,19 +116,59 @@ const toggleLanguage = isSpanish ? currentPath.replace("/es", "") : `/es${curren
 </header>
 <script defer>
 	window.onload = () => {
-	  const menuBtn = document.getElementById('menu-btn');
-	  const closeBtn = document.getElementById('close-btn');
-	  const mobileMenu = document.getElementById('mobile-menu');
-  
-	  if (menuBtn && closeBtn && mobileMenu) {
+	const menuBtn = document.getElementById('menu-btn');
+	const closeBtn = document.getElementById('close-btn');
+	const mobileMenu = document.getElementById('mobile-menu');
+	const languageBtn = document.getElementById('language-btn');
+	const languageMenu = document.getElementById('language-menu');
+
+	if (menuBtn && closeBtn && mobileMenu) {
 		menuBtn.addEventListener('click', () => {
-		  mobileMenu.classList.remove('-translate-x-full');
+			mobileMenu.classList.remove('-translate-x-full');
 		});
-  
+
 		closeBtn.addEventListener('click', () => {
-		  mobileMenu.classList.add('-translate-x-full');
+			mobileMenu.classList.add('-translate-x-full');
 		});
-	  }
-	};
-  </script>
-  
+	}
+
+	// Mostrar/Ocultar menú de idioma al hacer clic
+	if (languageBtn && languageMenu) {
+		languageBtn.addEventListener('click', (e) => {
+			e.stopPropagation(); // Evita que el evento cierre el menú inmediatamente
+			const isOpen = languageMenu.classList.contains('opacity-100');
+			languageMenu.classList.toggle('opacity-100', !isOpen);
+			languageMenu.classList.toggle('visible', !isOpen);
+			languageMenu.classList.toggle('opacity-0', isOpen);
+			languageMenu.classList.toggle('invisible', isOpen);
+		});
+
+		// Cerrar el menú si se hace clic fuera
+		document.addEventListener('click', (e) => {
+			if (!languageMenu.contains(e.target) && !languageBtn.contains(e.target)) {
+				languageMenu.classList.add('opacity-0', 'invisible');
+				languageMenu.classList.remove('opacity-100', 'visible');
+			}
+		});
+	}
+
+	const mobileLanguageBtn = document.getElementById('mobile-language-btn');
+        const mobileLanguageMenu = document.getElementById('mobile-language-menu');
+
+        mobileLanguageBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileLanguageMenu.classList.toggle('opacity-100');
+            mobileLanguageMenu.classList.toggle('visible');
+            mobileLanguageMenu.classList.toggle('opacity-0');
+            mobileLanguageMenu.classList.toggle('invisible');
+        });
+
+        // Cierra el menú si se hace clic fuera de él
+        document.addEventListener('click', (e) => {
+            if (!mobileLanguageBtn.contains(e.target) && !mobileLanguageMenu.contains(e.target)) {
+                mobileLanguageMenu.classList.add('opacity-0', 'invisible');
+                mobileLanguageMenu.classList.remove('opacity-100', 'visible');
+            }
+        });
+};
+</script>
