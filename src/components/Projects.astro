@@ -3,9 +3,17 @@ import { Github, Globe, PackageSearch } from 'lucide-astro';
 import { Image } from "astro:assets";
 import autoviajeImg from '../assets/projects/autoviaje.webp';
 import raidersitoImg from '../assets/projects/raidersito.webp';
-import portfolioImg from '../assets/projects/portfolio1.webp';
+import cineramaImg from '../assets/projects/cinerama.webp';
 
 const projects = [
+  {
+    title: "Cinerama",
+    description: "Cinerama — Discover the latest movies, rebuilt and reimagined with Astro.",
+    image: cineramaImg,
+    tags: ["Astro", "TailwindCSS", "JavaScript", "HTML"],
+    link: "https://cinerama-seven.vercel.app/",
+    code: "https://github.com/RaiderMr3003/Cinerama"
+  },
   {
     title: "Autoviaje",
     description: "Travel Autorization Generation System - System created for Notaría Delgado, Peru.",
@@ -21,14 +29,6 @@ const projects = [
     tags: ["Python"],
     link: "https://github.com/RaiderMr3003/RaidersitoV1.0",
     code: "https://github.com/RaiderMr3003/RaidersitoV1.0"
-  },
-  {
-    title: "Portfolio",
-    description: "Portfolio created with Astro to showcase my skills and experience.",
-    image: portfolioImg,
-    tags: ["Astro", "TailwindCSS", "JavaScript", "HTML", "CSS"],
-    link: "https://github.com/RaiderMr3003/Portfolio",
-    code: "https://github.com/RaiderMr3003/Portfolio"
   }
 ];
 ---
