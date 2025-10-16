@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://raidermr-portfolio.netlify.app/es/
